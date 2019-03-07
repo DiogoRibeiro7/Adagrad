@@ -19,8 +19,8 @@ def adagrad(f_grad,x0,data,args,stepsize = 1e-2,fudge_factor = 1e-6,max_it=1000,
     if minibatchsize is None:
         minibatchsize = int(math.ceil(len(data)*minibatch_ratio))
     w=x0
-    for t in xrange(max_it):
-        s=sample(xrange(ld),minibatchsize)
+    for t in range(max_it):
+        s=sample(range(ld),minibatchsize)
         sd=[data[idx] for idx in s]
         grad=f_grad(w,sd,*args)
         gti+=grad**2
